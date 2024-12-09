@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="30dp">
+
+    <!-- Logo -->
+    <ImageView
+        android:id="@+id/logoImage"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/easee_logo"
+        android:contentDescription="App Logo"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="60dp" />
+
+    <!-- Title Text -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/signup_title"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary_color_text"
+        android:layout_below="@id/logoImage"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Email EditText with Microphone Icon -->
+    <LinearLayout
+        android:id="@+id/emailArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/grey_rounded_circle"
+        android:layout_below="@id/title"
+        android:padding="8dp"
+        android:layout_marginBottom="16dp">
+
+        <EditText
+            android:id="@+id/emailEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/user_email_hint"
+            android:inputType="textEmailAddress"
+            android:background="@android:color/transparent"
+            android:padding="8dp"/>
+
+        <ImageButton
+            android:id="@+id/microphoneButton"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_microphone"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Voice Input"
+            android:scaleType="fitCenter" />
+    </LinearLayout>
+
+    <!-- Password EditText with Visibility Toggle -->
+    <LinearLayout
+        android:id="@+id/passwordArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/grey_rounded_circle"
+        android:layout_below="@id/emailArea"
+        android:padding="8dp"
+        android:layout_marginBottom="16dp">
+
+        <EditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/user_password_hint"
+            android:inputType="textPassword"
+            android:background="@android:color/transparent"
+            android:padding="8dp"/>
+
+        <ImageButton
+            android:id="@+id/passwordToggle"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_visiblity_off"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Toggle Password Visibility"
+            android:scaleType="fitCenter" />
+    </LinearLayout>
+
+    <!-- Confirm Password EditText with Visibility Toggle -->
+    <LinearLayout
+        android:id="@+id/confirmPasswordArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/grey_rounded_circle"
+        android:layout_below="@id/passwordArea"
+        android:padding="8dp"
+        android:layout_marginBottom="24dp">
+
+        <EditText
+            android:id="@+id/confirmPasswordEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/user_confirm_password_hint"
+            android:inputType="textPassword"
+            android:background="@android:color/transparent"
+            android:padding="8dp"/>
+
+        <ImageButton
+            android:id="@+id/confirmPasswordToggle"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_visiblity_off"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Toggle Confirm Password Visibility"
+            android:scaleType="fitCenter" />
+    </LinearLayout>
+
+    <!-- Sign Up Button -->
+    <Button
+        android:id="@+id/signUpButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:backgroundTint="@color/primary_color"
+        android:textColor="@color/white"
+        android:layout_below="@id/confirmPasswordArea"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="16dp" />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@id/signUpButton">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Already have an account? "
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/loginLink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Log In"
+            android:textColor="@color/primary_color"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">EaSee</string>
+    <string name="homepage_tts">You are now in homepage</string>
+    <string name="user_name">User Name</string>
+    <string name="user_email">example@gmail.com</string>
+    <string name="user_phone_number">012-3456789</string>
+    <string name="user_name_hint">Your Name</string>
+    <string name="user_email_hint">youremail@email.com</string>
+    <string name="user_password_hint">Your password</string>
+    <string name="user_confirm_password_hint">Confirm Password</string>
+    <string name="save_changes">Save Changes</string>
+
+
+    <!-- Edit Profile -->
+    <string-array name="country_code_options">
+        <item>+60</item>
+        <item>+65</item>
+    </string-array>
+    <array name="flag_options">
+        <item>@drawable/ic_malaysia</item>
+        <item>@drawable/ic_singapore</item>
+    </array>
+
+    <!-- Setting -->
+    <string-array name="language_options">
+        <item>English</item>
+        <item>Chinese</item>
+        <item>Malay</item>
+    </string-array>
+
+    <string-array name="voice_speed_options">
+        <item>Slow</item>
+        <item>Medium</item>
+        <item>Fast</item>
+    </string-array>
+
+
+    <string name="title_activity_setting">SettingActivity</string>
+    <string name="login_title">Login to your Account</string>
+    <string name="signup_title">Create your Account</string>
+    <string name="forgot_password_title">Forgot Password</string>
+    <string name="forgot_password_desc">Enter email description associated with your account and we\'ll send verification code to reset your password</string>
+
+</resources>

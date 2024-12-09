@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Set the background color to white -->
+    <solid android:color="#FFFFFF" /> <!-- White color -->
+
+    <!-- Set a grey border -->
+    <stroke
+        android:width="2dp"
+        android:color="#B0B0B0" /> <!-- Light grey color -->
+
+    <!-- Set corner radius to make it rounded -->
+    <corners android:radius="50dp" />
+
+    <!-- Optional: Add padding inside the shape -->
+    <padding
+        android:left="12dp"
+        android:right="12dp"
+        android:top="8dp"
+        android:bottom="8dp" />
+</shape>
