@@ -80,7 +80,7 @@ class RealtimeDetectionActivity : AppCompatActivity() {
         val btnSave: Button = findViewById(R.id.btnSave)
 
         TTSManager.init(this)
-        TTSManager.speak("Realtime Detection Activity")
+        TTSManager.speak("Realtime Detection Activity", this)
 
         setupToolbar()
 
@@ -334,7 +334,7 @@ class RealtimeDetectionActivity : AppCompatActivity() {
             lastDetectedObject = detectedObject
             lastDetectedConfidence = confidence
             lastDetectionTime = currentTime
-            TTSManager.speak(detectedObject)
+            TTSManager.speak(detectedObject, this)
 
         }
     }
@@ -441,7 +441,7 @@ class RealtimeDetectionActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        TTSManager.speak("Realtime Detection Activity")
+        TTSManager.speak("Realtime Detection Activity", this)
     }
 
 

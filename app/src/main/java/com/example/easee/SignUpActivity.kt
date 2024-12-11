@@ -25,7 +25,7 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(R.layout.activity_signup)
 
         TTSManager.init(this)
-        TTSManager.speak("Sign Up Activity")
+        TTSManager.speak("Sign Up Activity", this)
 
         val signUpButton: Button = findViewById(R.id.signUpButton)
         val loginLink: TextView = findViewById(R.id.loginLink)
@@ -92,7 +92,7 @@ class SignUpActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        TTSManager.speak("Sign Up Activity")
+        TTSManager.speak("Sign Up Activity", this)
     }
 
     override fun onDestroy() {

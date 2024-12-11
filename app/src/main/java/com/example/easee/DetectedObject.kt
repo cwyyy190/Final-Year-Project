@@ -23,11 +23,17 @@ class DetectedObjectsAdapter(
     private var detectedObjects: List<DetectedObject>
 ) : RecyclerView.Adapter<DetectedObjectsAdapter.ViewHolder>() {
 
+    private var onItemClickListener: ((String) -> Unit)? = null
+
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.ivObjectImage)
         val label: TextView = itemView.findViewById(R.id.tvLabel)
         val confidence: TextView = itemView.findViewById(R.id.tvConfidence)
         val timestamp: TextView = itemView.findViewById(R.id.tvTimestamp)
+    }
+
+    fun setOnItemClickListener(listener: (String) -> Unit) {
+        onItemClickListener = listener
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

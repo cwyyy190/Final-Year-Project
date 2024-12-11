@@ -25,36 +25,31 @@ object TTSManager : TextToSpeech.OnInitListener {
         }
     }
 
+    fun isTtsEnabled(context: Context): Boolean {
+        val sharedPreferences = context.getSharedPreferences("AppPreferences", Context.MODE_PRIVATE)
+        return sharedPreferences.getBoolean("TtsEnabled", true)
+    }
+
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS) {
             val result = tts?.setLanguage(Locale.US)
             isInitialized = result != TextToSpeech.LANG_MISSING_DATA &&
                     result != TextToSpeech.LANG_NOT_SUPPORTED
 
-            // Speak any pending text that was queued before initialization
-//            if (isInitialized) {
-//                pendingSpeakQueue.forEach { text ->
-//                    tts?.speak(text, TextToSpeech.QUEUE_ADD, null, null)
-//                }
-//                pendingSpeakQueue.clear()
-//            }
         } else {
             isInitialized = false
         }
     }
 
-    fun speak(text: String) {
-        if (!isTtsEnabled) return
-        if (isInitialized) {
+    fun speak(text: String, context: Context) {
+        if (isInitialized && isTtsEnabled(context)) {
             tts?.speak(text, TextToSpeech.QUEUE_FLUSH, null, null)
-        } else {
-            pendingSpeakQueue.add(text)
         }
     }
 
     fun speakHelp(){
         speakWithPause(
-            "Swipe Left or Right to back to previous page <pause> " +
+            "Swipe Left or Right to back to home page <pause> " +
                     "Draw circle to start detection <pause> " +
                     "Swipe up to upload image <pause> " +
                     "Draw a tick to save object <pause> " +
@@ -87,13 +82,13 @@ object TTSManager : TextToSpeech.OnInitListener {
     }
 
     fun enableTts(context: Context) {
-        isTtsEnabled = true
-        init(context)
+        val sharedPreferences = context.getSharedPreferences("AppPreferences", Context.MODE_PRIVATE)
+        sharedPreferences.edit().putBoolean("TtsEnabled", true).apply()
     }
 
-    fun disableTts() {
-        isTtsEnabled = false
-        shutdown()
+    fun disableTts(context: Context) {
+        val sharedPreferences = context.getSharedPreferences("AppPreferences", Context.MODE_PRIVATE)
+        sharedPreferences.edit().putBoolean("TtsEnabled", false).apply()
     }
 
     fun stop() {

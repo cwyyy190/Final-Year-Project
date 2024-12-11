@@ -67,7 +67,7 @@ class EditProfileActivity : AppCompatActivity() {
         setupToolbar()
 
         TTSManager.init(this)
-        TTSManager.speak("Edit Profile Activity")
+        TTSManager.speak("Edit Profile Activity", this)
 
         // Initialize views
         nameEditText = findViewById(R.id.nameEditText)
@@ -173,7 +173,7 @@ class EditProfileActivity : AppCompatActivity() {
             Toast.makeText(this, "User not logged in.", Toast.LENGTH_SHORT).show()
         }
 
-        TTSManager.speak("Edit Profile Activity")
+        TTSManager.speak("Edit Profile Activity", this)
     }
 
     private fun loadUserData(userId: String) {

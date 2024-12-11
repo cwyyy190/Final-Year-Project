@@ -28,12 +28,12 @@ class ForgetPasswordActivity : AppCompatActivity() {
         setContentView(R.layout.activity_forgot_password)
 
         TTSManager.init(this)
-        TTSManager.speak("Forget Password Activity")
+        TTSManager.speak("Forget Password Activity", this)
     }
 
     override fun onResume() {
         super.onResume()
-        TTSManager.speak("Forget Password Activity")
+        TTSManager.speak("Forget Password Activity", this)
     }
 
     override fun onDestroy() {

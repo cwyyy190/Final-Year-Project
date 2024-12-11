@@ -45,7 +45,7 @@ class HistoryActivity : AppCompatActivity() {
         setupToolbar()
 
         TTSManager.init(this)
-        TTSManager.speak("History Activity")
+        TTSManager.speak("History Activity", this)
 
         // HELP BUTTON LISTENERS
         val btnHelp: ImageButton = findViewById(R.id.btnHelp)
@@ -60,9 +60,18 @@ class HistoryActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
 
+        adapter.setOnItemClickListener { itemName ->
+            TTSManager.speak(itemName, this)
+        }
+
         fetchDetectedObjects() // Call to fetch data
 
-        // SearchView listener
+        searchDetectObjects(); // Search object
+
+
+    }
+
+    private fun searchDetectObjects(){
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean = false
 
@@ -74,7 +83,6 @@ class HistoryActivity : AppCompatActivity() {
                 return true
             }
         })
-
     }
 
     private fun fetchDetectedObjects() {
@@ -134,7 +142,7 @@ class HistoryActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        TTSManager.speak("History Activity")
+        TTSManager.speak("History Activity", this)
     }
 
     override fun onDestroy() {

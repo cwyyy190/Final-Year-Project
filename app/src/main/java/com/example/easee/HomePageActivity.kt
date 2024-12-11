@@ -68,7 +68,7 @@ class HomePageActivity : AppCompatActivity(){
     }
     override fun onResume() {
         super.onResume()
-        TTSManager.speak("Home Page Activity")
+        TTSManager.speak("Home Page Activity", this)
 
         // Set `nav_home` as the selected menu item
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)

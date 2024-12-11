@@ -25,7 +25,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         TTSManager.init(this)
-        TTSManager.speak("Login Activity")
+        TTSManager.speak("Login Activity", this)
 
         val emailEditText: EditText = findViewById(R.id.emailEditText)
         val passwordEditText: EditText = findViewById(R.id.passwordEditText)
@@ -125,6 +125,6 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        TTSManager.speak("Login Activity")
+        TTSManager.speak("Login Activity", this)
     }
 }

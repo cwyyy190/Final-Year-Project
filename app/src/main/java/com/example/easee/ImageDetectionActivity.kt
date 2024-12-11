@@ -49,7 +49,7 @@ class ImageDetectionActivity : AppCompatActivity() {
 
     private lateinit var imageUri: Uri
     private lateinit var bitmap: Bitmap
-    private lateinit var gptAnalyzer: GPTAnalyzer
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,7 +65,7 @@ class ImageDetectionActivity : AppCompatActivity() {
         setupToolbar()
 
         TTSManager.init(this)
-        TTSManager.speak("Image Detection Activity")
+        TTSManager.speak("Image Detection Activity", this)
 
         // HELP BUTTON LISTENERS
         val btnHelp: ImageButton = findViewById(R.id.btnHelp)
@@ -79,17 +79,7 @@ class ImageDetectionActivity : AppCompatActivity() {
 
         val apiKey = "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"
 
-        val gptAnalyzer = GPTAnalyzer()
-        lifecycleScope.launch {
-            try {
-                val response = gptAnalyzer.analyzeImage(bitmap, "$apiKey")
-                textViewResults.text = response
-            } catch (e: Exception) {
-                e.printStackTrace()
-                Toast.makeText(this@ImageDetectionActivity, "Failed to analyze image", Toast.LENGTH_SHORT).show()
-                textViewResults.text ="Failed to analyze image. Error: ${e.message}"
-            }
-        }
+
 
 
 
@@ -141,7 +131,7 @@ class ImageDetectionActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        TTSManager.speak("Image Detection Activity")
+        TTSManager.speak("Image Detection Activity", this)
     }
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()

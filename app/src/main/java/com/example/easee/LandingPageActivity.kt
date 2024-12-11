@@ -27,7 +27,7 @@ class LandingPageActivity : AppCompatActivity() {
         setContentView(R.layout.activity_landing_page)
 
         TTSManager.init(this)
-        TTSManager.speak("Welcome to Easee. You are now in Landing Page Activity")
+        TTSManager.speak("Welcome to Easee. You are now in Landing Page Activity", this)
 
         val signUpButton: Button = findViewById(R.id.signUpButton)
         val loginButton: Button = findViewById(R.id.logInButton)
@@ -60,7 +60,7 @@ class LandingPageActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        TTSManager.speak("Landing Page Activity")
+        TTSManager.speak("Landing Page Activity", this)
     }
 
 }

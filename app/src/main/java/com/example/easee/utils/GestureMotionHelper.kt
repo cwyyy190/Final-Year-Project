@@ -107,7 +107,7 @@ object GestureMotionHelper : GestureOverlayView.OnGesturePerformedListener {
 
         fun toggleSpeechToText(context: Context) {
             STTManager.startListening(
-                this,
+                context,
                 onResult = { result ->
                    // editText.setText(result)
                 },

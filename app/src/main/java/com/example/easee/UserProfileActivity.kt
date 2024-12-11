@@ -53,7 +53,7 @@ class UserProfileActivity : AppCompatActivity() {
 
         // TO SETUP TEXT TO SPEECH
         TTSManager.init(this)
-        TTSManager.speak("User Page Activity")
+        TTSManager.speak("User Page Activity", this)
 
         // Check if the user is logged in
         val currentUser = FirebaseAuth.getInstance().currentUser
@@ -127,7 +127,7 @@ class UserProfileActivity : AppCompatActivity() {
             Toast.makeText(this, "User not logged in.", Toast.LENGTH_SHORT).show()
         }
 
-        TTSManager.speak("User Page Activity")
+        TTSManager.speak("User Page Activity", this)
 
     }
 
